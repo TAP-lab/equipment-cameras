@@ -1,4 +1,9 @@
 <?php
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 $uploadDir = './';
 $keys = ['1234'];
 
@@ -14,6 +19,6 @@ if (isset($_POST['key']) && in_array($_POST['key'], $keys)) {
                 unlink($targetFile);
             }
             move_uploaded_file($_FILES['image']['tmp_name'], $targetFile);
-        } 
+        }
     }
 }
